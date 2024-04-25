@@ -16,7 +16,6 @@ if(isset($_GET['id'])) {
     
     $row = mysql_fetch_array($result);
 
-    $id = $_GET['id'];
     $nombre = $row['nombre'];
     $apellido1 = $row['apellido1'];
 }

@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,14 +30,14 @@
 
                 // print_r($row);
 
-                
                 echo '
                 <tr>
                     <td>'.$row['id'].'</td>
-                    <td><a href="form.php?id='.$row['id'].'">'.$row['nombre_completo'].'</a></td>
+                    <td>
+                        <a href="form.php?id='.$row['id'].'">'.$row['nombre_completo'].'</a>
+                    </td>
                 </tr>
                 ';
-               
             }
             ?>
         </tbody>
