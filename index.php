@@ -8,5 +8,6 @@
 <body>
     <h1>HOME</h1>
     <a href="usuarios/">Usuarios</a>
+    <a href="empresas/">Empresas</a>
 </body>
 </html>

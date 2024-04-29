@@ -1,27 +1,33 @@
 <?php
 
-// INICIALIZACIÓN DE VARIABLES
 $id = null;
 $nombre = null;
-$apellido1 = null;
-$apellido2 = null;
+$direccion  = null;
+$telefono = null;
+$rfc = null;
+$email = null;
 
-// SI EXISTE EL PARÁMETRO id SE CONSULTA EL REGISTRO
+// Este fragmento de código PHP está comprobando si el parámetro id está presente en la URL de la página y,
+// si es así, está almacenando su valor en la variable $id.
 if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
     $conn = mysqli_connect("localhost", "root", "");
-    $sql = "select * from especialidades_medicas.usuarios where id=" . $id;
+    $sql = "select * from especialidades_medicas.empresas where id=" .$id;
     $result = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_array($result);
 
     $id = $_GET['id'];
     $nombre = $row['nombre'];
-    $apellido1 = $row['apellido1'];
-    $apellido2 = $row['apellido2'];
+    $direccion = $row['direccion'];
+    $telefono = $row['telefono'];
+    $rfc  = $row['rfc'];
+    $email = $row['email'];
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -34,21 +40,24 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <h1>Usuario</h1>
-    <form method="POST" action="backend.php">
+    <h1>Catalogo de empresas</h1>
+    <form method="POST" action="backendEmpresas.php">
         Nombre
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <input type="text" name="nombre" value="<?php echo $nombre; ?>">
         <br>
-        Apellido Paterno
-        <input type="text" name="apellido1" value="<?php echo $apellido1; ?>">
+        Direccion
+        <input type="text" name="direccion" value="<?php echo $direccion; ?>">
         <br>
-        Apellido Materno
-        <input type="text" name="apellido2" value="<?php echo $apellido2; ?>">
+        Telefono
+        <input type="number" name="telefono" value="<?php echo $telefono; ?>">
         <br>
-        Contraseña
-        <input type="password" name="contrasena">
+        RFC
+        <input type="text" name="rfc" value="<?php echo $rfc; ?>">
         <br>
+        email
+        <input type="email" name= "email" value='<?php echo $email; ?>'>
+        <br>        
         <input type="submit" name="guardar" value="Guardar">
 
         <?php
@@ -61,7 +70,8 @@ if (isset($_GET['id'])) {
         ?>
 
     </form>
-    <a href="./">Usuarios</a>
+    <a href="/capacitacion2/empresas/">Empresas</a>
 </body>
 
-</html>
+
+
